@@ -20,9 +20,12 @@ public class SimpleController {
 
     @GetMapping("/two")
     public String twoPage(Model model) {
+        Consumeapi api = new Consumeapi();
+        String data = api.consume();
+
         model.addAttribute("first", "I am #1");
         model.addAttribute("second", "Chicago");
-        model.addAttribute("third", "Thirstin Howe");
+        model.addAttribute("third", data);
         return "two";
     }
 }
